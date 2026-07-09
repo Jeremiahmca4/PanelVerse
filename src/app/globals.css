@@ -1,0 +1,118 @@
+/* ============================================================
+   Panelverse design tokens — from the handoff spec. The aesthetic
+   is deliberate (inked comic look): hard black borders, hard offset
+   shadows (no blur), Bangers display + Space Grotesk UI.
+   ============================================================ */
+
+:root {
+  --ink: #101018;
+  --paper: #f4f1e8;
+  --paper-alt: #e9e5d8;
+  --acc: #ff2e4d;          /* runtime-tweakable accent */
+  --yellow: #ffd23f;
+  --muted-1: #4a4a55;
+  --muted-2: #6a6a75;
+  --muted-3: #8a8a95;
+  --muted-4: #9a9aa5;
+  --scrim: rgba(5, 5, 8, 0.82);
+
+  /* signature hard offset shadow (no blur) */
+  --shadow-4: 4px 4px 0 rgba(16, 16, 24, 0.85);
+  --shadow-6: 6px 6px 0 rgba(16, 16, 24, 0.85);
+  --shadow-8: 8px 8px 0 rgba(16, 16, 24, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-grotesk), sans-serif;
+}
+
+.bangers {
+  font-family: var(--font-bangers), cursive;
+}
+
+/* halftone dot texture for dark hero surfaces */
+.halftone {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+/* hard-shadow card with the signature hover lift */
+.hard-card {
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-6);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.hard-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 rgba(16, 16, 24, 0.85);
+}
+
+/* buttons */
+.btn {
+  font-family: var(--font-grotesk), sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-4);
+}
+.btn-accent {
+  background: var(--acc);
+  color: #fff;
+}
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.btn-ink {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* nav buttons in the top bar */
+.nav-btn {
+  font-family: var(--font-grotesk), sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  padding: 9px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+.nav-btn:hover,
+.nav-btn.active {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+input[type='text'],
+input[type='email'] {
+  font-family: var(--font-grotesk), sans-serif;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 10px 12px;
+  font-size: 14px;
+}
